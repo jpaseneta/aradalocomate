@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Arada Locomate</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_navigation">Navigation</string>
+    <string name="nav_item_radar">Radar</string>
+    <string name="nav_item_notifications">Maps</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_navigation</item>
+        <item>@string/nav_item_radar</item>
+        <item>@string/nav_item_notifications</item>
+    </string-array>
+
+    <string name="fallingobjects">Warning, falling objects</string>
+    <string name="wrongdirection">Warning, wrong direction driving</string>
+    <string name="pedestrian">Warning, pedestrian</string>
+    <string name="slowmovingvehicle">Warning, slow moving vehicle</string>
+    <string name="trafficjam">Warning, traffic jam</string>
+
+    <!--warning messages-->
+    <string-array name="warning_messages_array">
+        <item>@string/fallingobjects</item>
+        <item>@string/wrongdirection</item>
+        <item>@string/pedestrian</item>
+        <item>@string/slowmovingvehicle</item>
+        <item>@string/trafficjam</item>
+    </string-array>
+
+    <string name="title_navigation">Navigation</string>
+    <string name="title_radar">Radar</string>
+    <string name="title_maps">Maps</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  BluetoothChat -->
+    <string name="send">Send</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Chat.</string>
+    <string name="title_connecting">Connecting...</string>
+    <string name="title_connected_to">Connected: </string>
+    <string name="title_not_connected">not connected</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+
+    <!-- Options Menu -->
+    <string name="connect">Connect a device</string>
+    <string name="discoverable">Make discoverable</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+</resources>

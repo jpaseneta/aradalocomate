@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/framelayout"
+    android:background="@android:color/background_light"
+    tools:context="com.example.inmsb.aradalocomate.Activity.NavigationFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@android:color/background_light"
+        >
+        <com.example.inmsb.aradalocomate.CustomImplementations.CustomImageView
+            android:id="@+id/arrowimageview"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@android:color/background_light"
+            android:layout_gravity="top|center_horizontal"
+            android:src="@drawable/orangearrow"/>
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="20dp"
+            android:gravity="center"/>
+
+    </FrameLayout>
+    <TextView
+        android:id="@+id/connectionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal" />
+
+
+</FrameLayout>

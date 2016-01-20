@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.inmsb.aradalocomate.Activity.RadarFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/radarEventList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="15dp" />
+    <TextView
+        android:id="@+id/connectionStatusRadar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal" />
+
+
+</FrameLayout>

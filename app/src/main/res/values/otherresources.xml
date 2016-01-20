@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="nav_drawer_icons">
+        <item>@drawable/navigationicon</item>
+        <item>@drawable/radar</item>
+        <item>@drawable/redarrow</item>
+    </array>
+</resources>
