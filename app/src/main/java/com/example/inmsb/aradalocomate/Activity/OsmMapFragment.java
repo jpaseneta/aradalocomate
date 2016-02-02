@@ -31,6 +31,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.DirectedLocationOverlay;
+import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
@@ -89,7 +90,6 @@ public class OsmMapFragment extends BaseFragment {
         myLocationOverlay = new DirectedLocationOverlay(getActivity());
         map.getOverlays().add(myLocationOverlay);
         myLocationOverlay.setLocation(new GeoPoint(location));
-
         map.invalidate();
 
         handler= new Handler(){
@@ -124,7 +124,9 @@ public class OsmMapFragment extends BaseFragment {
                 Thread.sleep(3000);
             }catch(Exception e){};
             for(GeoPoint geo:road.mRouteHigh){
+
                 myLocationOverlay.setLocation(geo);
+                myLocationOverlay.setBearing(180);
                 try{
                     Thread.sleep(100);
                 }catch(Exception e){};

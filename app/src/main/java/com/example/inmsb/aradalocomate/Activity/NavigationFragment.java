@@ -124,13 +124,6 @@ public class NavigationFragment extends BaseFragment {
         Log.d(TAG, "++ ON SAVEINSTANCESTATE ++");
     }
 
-
-
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.option_menu, menu);
-//    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

@@ -33,7 +33,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewAnimationUtils;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -106,21 +105,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        if(savedInstanceState == null) {
-//            Log.d(TAG, "MainActivity OnCreate -> saved instance state is null");
-//        }else{
-//            Log.d(TAG, "MainActivity OnCreate -> saved instance state IS NOT Null");
-//        }
-//        Date test = new Date();
-//        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddhhmmssSSS");
-//        Date date=null;
-//        try {
-//            date = df.parse("20160111103033400");
-//        }catch (Exception e){}
-//
-//        long result = test.getTime()-date.getTime();
-//Log.d("result", String.valueOf(result));
-
         res=getResources();
         Arrays.fill(VisibilityArray,false);
         getWindow().setEnterTransition(new Explode());
@@ -159,34 +143,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             return;
         }
 
-//        mEnterTransitionListener = new Transition.TransitionListener() {
-//
-//            @Override
-//            public void onTransitionStart(Transition transition) {
-//
-//            }
-//
-//            @Override
-//            public void onTransitionEnd(Transition transition) {
-//                enterReveal();
-//            }
-//
-//            @Override
-//            public void onTransitionCancel(Transition transition) {
-//
-//            }
-//
-//            @Override
-//            public void onTransitionPause(Transition transition) {
-//
-//            }
-//
-//            @Override
-//            public void onTransitionResume(Transition transition) {
-//
-//            }
-//        };
-//        getWindow().getEnterTransition().addListener(mEnterTransitionListener);
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -201,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             Log.d(TAG, "navigationFragment was added");
         }
 
+        //radar communication fragment.
         if( radarFragment==null) {
             radarFragment = new RadarFragment();
             fragmentTransaction.add(R.id.container_body, radarFragment, "radarFragment");
@@ -209,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             Log.d(TAG, "radarFragment was added");
         }
 
+        //toggle between using google maps/osm maps
 //        if( mapsFragment==null) {
 //            mapsFragment = new GoogleMapsFragment();
 //            fragmentTransaction.add(R.id.container_body, mapsFragment, "mapsFragment");
@@ -404,7 +362,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                             date = df.parse(splittedStrings[1]);
                             Log.d("parsedDate",date.toString());
                             Date now = new Date();
-                            Log.d("TIMETOSTRING", date.toString() + " " + now.toString());
+                            //for checking latency time.
+                            Log.d("TIMERECEIVED", date.toString() + " " + now.toString());
                             Log.d("TIMERADARTOPHONE",date.getTime()+" "+now.getTime() + " "+ packetCount);
                         }catch (Exception e){Log.d(TAG,"can't parse date");}
 
@@ -431,6 +390,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                                 }
                             }
 
+                            //create warning notifications from radar
                             if(duplicate){
                                 RadarItems.set(index,new RadarInfoItem(
                                         laneIndex, date, unforeseenDetectionType, lng, lat, distance
@@ -444,27 +404,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                             }
                         }
 
-
                     }
-//                if(DisplayItems.isEmpty()){ //displaying data on listview
-//                    DisplayItems.add(readMessage);
-//                    mConversationArrayAdapter.notifyDataSetChanged();
-//                }else {
-//                    boolean updated=false;
-//                    for (String curval : DisplayItems) {
-//                        if (curval.contains(splittedStrings[1])) {
-//                            int index = DisplayItems.indexOf(curval);
-//                            DisplayItems.set(index, readMessage);
-//                            mConversationArrayAdapter.notifyDataSetChanged();
-//                            updated=true;
-//                            break;
-//                        }
-//                    }
-//                    if(!updated) {
-//                        DisplayItems.add(readMessage);
-//                        mConversationArrayAdapter.notifyDataSetChanged();
-//                    }
-//                }
 
                     break;
                 case MESSAGE_DEVICE_NAME:
@@ -527,12 +467,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     private void displayView(int position) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        //Fragment currFragment = fragmentManager.findFragmentById(R.id.container_body);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         String title = getString(R.string.app_name);
 
-        //Slide slideTransition = new Slide(Gravity.RIGHT);
-        //slideTransition.setDuration(500);
 
         for(int i=0;i<VisibilityArray.length; i++) {
             if(VisibilityArray[i]){
@@ -586,21 +523,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         }
         fragmentTransaction.commit();
         getSupportActionBar().setTitle(title);
-//        if (fragment != null) {
-//
-//
-//            if(lastFragment!=null) {
-//                fragmentTransaction.hide(lastFragment);
-//            }
-//            fragmentTransaction.add(fragment,"newfragment");
-//            fragmentTransaction.addToBackStack(null);
-//            //fragmentTransaction.replace(R.id.container_body, fragment);
-//            fragmentTransaction.commit();
-//            lastFragment=fragment;
-//
-//            // set the toolbar title
-//            getSupportActionBar().setTitle(title);
-//        }
     }
 
     private void enterReveal() {

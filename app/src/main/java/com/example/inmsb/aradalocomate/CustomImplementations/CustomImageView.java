@@ -38,14 +38,7 @@ public class CustomImageView extends ImageView {
     protected void onDraw(Canvas canvas) {
         Bitmap bm=((BitmapDrawable)this.getDrawable()).getBitmap();
         this.setScaleType(ScaleType.MATRIX);
-        Matrix mat = new Matrix();
-        float x=this.getLeft()+this.getWidth()/2;
-        float y=this.getTop()+this.getHeight()/2;
         float z=this.getWidth()/2-this.getDrawable().getBounds().width()/2;
-//        Log.d("TAG", "Width of drawable: "+this.getDrawable().getBounds().width());
-//        Log.d("TAG", "On Draw Canvas X coord: "+x);
-//        Log.d("TAG", "On Draw Canvas Y coord: "+y);
-//        Log.d("TAG", "On Draw Canvas Z coord: "+z);
         canvas.drawBitmap(bm,z,0,null);
     }
 }
